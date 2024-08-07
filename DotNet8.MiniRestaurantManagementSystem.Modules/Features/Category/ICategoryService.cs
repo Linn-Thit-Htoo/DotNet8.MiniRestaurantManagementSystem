@@ -10,6 +10,7 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category
 {
     public interface ICategoryService
     {
-        Task<Result<IEnumerable<CategoryDto>>> GetCategoriesAsync();
+        Task<Result<IEnumerable<CategoryDto>>> GetCategoriesAsync(CancellationToken cancellationToken);
+        Task<Result<CategoryDto>> CreateCategoryAsync(CreateCategoryDto categoryDto, CancellationToken cancellationToken);
     }
 }

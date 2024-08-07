@@ -19,5 +19,14 @@ namespace DotNet8.MiniRestaurantManagementSystem.Extensions
                 CategoryName = dataModel.CategoryName
             };
         }
+
+        public static TblCategory ToEntity(this CreateCategoryDto categoryDto)
+        {
+            return new TblCategory
+            {
+                CategoryCode = Ulid.NewUlid().ToString(),
+                CategoryName = categoryDto.CategoryName
+            };
+        }
     }
 }

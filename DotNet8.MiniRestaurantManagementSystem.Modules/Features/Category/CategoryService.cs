@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,12 +21,12 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category
             _context = context;
         }
 
-        public async Task<Result<IEnumerable<CategoryDto>>> GetCategoriesAsync()
+        public async Task<Result<IEnumerable<CategoryDto>>> GetCategoriesAsync(CancellationToken cancellationToken)
         {
             Result<IEnumerable<CategoryDto>> result;
             try
             {
-                var lst = await _context.TblCategories.OrderByDescending(x => x.CategoryId).ToListAsync();
+                var lst = await _context.TblCategories.OrderByDescending(x => x.CategoryId).ToListAsync(cancellationToken: cancellationToken);
                 result = Result<IEnumerable<CategoryDto>>.Success(lst.Select(x => x.ToDto()));
             }
             catch (Exception ex)
@@ -34,6 +35,37 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category
             }
 
             return result;
+        }
+
+        public async Task<Result<CategoryDto>> CreateCategoryAsync(CreateCategoryDto categoryDto, CancellationToken cancellationToken)
+        {
+            Result<CategoryDto> result;
+            try
+            {
+                bool isDuplicate = await IsCategoryDuplicate(x => x.CategoryName == categoryDto.CategoryName, cancellationToken);
+                if (isDuplicate)
+                {
+                    result = Result<CategoryDto>.Duplicate("Category Name already exists.");
+                    goto result;
+                }
+
+                await _context.TblCategories.AddAsync(categoryDto.ToEntity(), cancellationToken);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                result = Result<CategoryDto>.SaveSuccess();
+            }
+            catch (Exception ex)
+            {
+                result = Result<CategoryDto>.Failure(ex);
+            }
+
+        result:
+            return result;
+        }
+
+        private async Task<bool> IsCategoryDuplicate(Expression<Func<TblCategory, bool>> expression, CancellationToken cancellationToken)
+        {
+            return await _context.TblCategories.AnyAsync(expression, cancellationToken: cancellationToken);
         }
     }
 }
