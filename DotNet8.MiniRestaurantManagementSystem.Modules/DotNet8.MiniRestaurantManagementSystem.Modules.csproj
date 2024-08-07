@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet8.MiniRestaurantManagementSystem.DbService\DotNet8.MiniRestaurantManagementSystem.DbService.csproj" />
+    <ProjectReference Include="..\DotNet8.MiniRestaurantManagementSystem.Dtos\DotNet8.MiniRestaurantManagementSystem.Dtos.csproj" />
+    <ProjectReference Include="..\DotNet8.MiniRestaurantManagementSystem.Extensions\DotNet8.MiniRestaurantManagementSystem.Extensions.csproj" />
+    <ProjectReference Include="..\DotNet8.MiniRestaurantManagementSystem.Shared\DotNet8.MiniRestaurantManagementSystem.Shared.csproj" />
+    <ProjectReference Include="..\DotNet8.MiniRestaurantManagementSystem.Utils\DotNet8.MiniRestaurantManagementSystem.Utils.csproj" />
+  </ItemGroup>
+
 </Project>
