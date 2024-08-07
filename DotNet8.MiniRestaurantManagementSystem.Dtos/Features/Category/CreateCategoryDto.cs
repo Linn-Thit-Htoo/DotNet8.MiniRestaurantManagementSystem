@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Category
 {
-    internal class CreateCategoryDto
+    public class CreateCategoryDto
     {
+        public string CategoryName { get; set; } = null!;
     }
 }
