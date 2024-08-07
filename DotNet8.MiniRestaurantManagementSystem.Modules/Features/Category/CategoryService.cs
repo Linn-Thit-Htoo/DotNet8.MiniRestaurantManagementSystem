@@ -60,9 +60,27 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category
             return result;
         }
 
-        public Task<Result<CategoryDto>> GetCategoryByCodeAsync(int categoryId, CancellationToken cancellationToken)
+        public async Task<Result<CategoryDto>> GetCategoryByCodeAsync(string categoryCode, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            Result<CategoryDto> result;
+            try
+            {
+                var category = await GetSpecificCategory(x => x.CategoryCode == categoryCode, cancellationToken);
+                if (category is null)
+                {
+                    result = Result<CategoryDto>.NotFound("Category Not Found.");
+                    goto result;
+                }
+
+                result = Result<CategoryDto>.Success(category.ToDto());
+            }
+            catch (Exception ex)
+            {
+                result = Result<CategoryDto>.Failure(ex);
+            }
+
+        result:
+            return result;
         }
 
         public async Task<Result<CategoryDto>> CreateCategoryAsync(CreateCategoryDto categoryDto, CancellationToken cancellationToken)
