@@ -37,6 +37,34 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category
             return result;
         }
 
+        public async Task<Result<CategoryDto>> GetCategoryByIdAsync(int categoryId, CancellationToken cancellationToken)
+        {
+            Result<CategoryDto> result;
+            try
+            {
+                var category = await GetSpecificCategory(x => x.CategoryId == categoryId, cancellationToken);
+                if (category is null)
+                {
+                    result = Result<CategoryDto>.NotFound("Category Not Found.");
+                    goto result;
+                }
+
+                result = Result<CategoryDto>.Success(category.ToDto());
+            }
+            catch (Exception ex)
+            {
+                result = Result<CategoryDto>.Failure(ex);
+            }
+
+        result:
+            return result;
+        }
+
+        public Task<Result<CategoryDto>> GetCategoryByCodeAsync(int categoryId, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Result<CategoryDto>> CreateCategoryAsync(CreateCategoryDto categoryDto, CancellationToken cancellationToken)
         {
             Result<CategoryDto> result;
@@ -66,6 +94,11 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category
         private async Task<bool> IsCategoryDuplicate(Expression<Func<TblCategory, bool>> expression, CancellationToken cancellationToken)
         {
             return await _context.TblCategories.AnyAsync(expression, cancellationToken: cancellationToken);
+        }
+
+        private async Task<TblCategory?> GetSpecificCategory(Expression<Func<TblCategory, bool>> expression, CancellationToken cancellationToken)
+        {
+            return await _context.TblCategories.FirstOrDefaultAsync(expression, cancellationToken: cancellationToken);
         }
     }
 }
