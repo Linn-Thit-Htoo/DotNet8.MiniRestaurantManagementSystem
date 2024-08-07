@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35005.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8444DCDF-250C-40EA-974C-0CF1232F3C63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{F2D9159E-76AE-4AE4-844C-11AA2BC27F2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{C3C8598F-A348-4791-8FD9-CAA18E7D6238}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.Modules", "DotNet8.MiniRestaurantManagementSystem.Modules\DotNet8.MiniRestaurantManagementSystem.Modules.csproj", "{1E15E4B8-3DE1-431B-9B2F-0C38CD197365}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{164D8113-6723-4351-9C19-D208E6726C34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.DbService", "DotNet8.MiniRestaurantManagementSystem.DbService\DotNet8.MiniRestaurantManagementSystem.DbService.csproj", "{D7E8E625-CDF6-41A9-BC1A-93ECCA76BB28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.Shared", "DotNet8.MiniRestaurantManagementSystem.Shared\DotNet8.MiniRestaurantManagementSystem.Shared.csproj", "{150AE2EA-6028-42B4-9086-B09357145AA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.Extensions", "DotNet8.MiniRestaurantManagementSystem.Extensions\DotNet8.MiniRestaurantManagementSystem.Extensions.csproj", "{F793D2E5-CE12-421E-B420-68DB31A1278D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.Dtos", "DotNet8.MiniRestaurantManagementSystem.Dtos\DotNet8.MiniRestaurantManagementSystem.Dtos.csproj", "{C561EDEA-7ADA-4B67-B41F-30A7E4B852F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.Utils", "DotNet8.MiniRestaurantManagementSystem.Utils\DotNet8.MiniRestaurantManagementSystem.Utils.csproj", "{3A887383-C9B6-45A6-83C1-33579B94781A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.Api", "DotNet8.MiniRestaurantManagementSystem.Api\DotNet8.MiniRestaurantManagementSystem.Api.csproj", "{0854D9C1-C18D-43AA-A366-46FAC26977EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E15E4B8-3DE1-431B-9B2F-0C38CD197365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E15E4B8-3DE1-431B-9B2F-0C38CD197365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E15E4B8-3DE1-431B-9B2F-0C38CD197365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E15E4B8-3DE1-431B-9B2F-0C38CD197365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7E8E625-CDF6-41A9-BC1A-93ECCA76BB28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7E8E625-CDF6-41A9-BC1A-93ECCA76BB28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7E8E625-CDF6-41A9-BC1A-93ECCA76BB28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7E8E625-CDF6-41A9-BC1A-93ECCA76BB28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{150AE2EA-6028-42B4-9086-B09357145AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{150AE2EA-6028-42B4-9086-B09357145AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{150AE2EA-6028-42B4-9086-B09357145AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{150AE2EA-6028-42B4-9086-B09357145AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F793D2E5-CE12-421E-B420-68DB31A1278D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F793D2E5-CE12-421E-B420-68DB31A1278D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F793D2E5-CE12-421E-B420-68DB31A1278D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F793D2E5-CE12-421E-B420-68DB31A1278D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C561EDEA-7ADA-4B67-B41F-30A7E4B852F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C561EDEA-7ADA-4B67-B41F-30A7E4B852F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C561EDEA-7ADA-4B67-B41F-30A7E4B852F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C561EDEA-7ADA-4B67-B41F-30A7E4B852F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A887383-C9B6-45A6-83C1-33579B94781A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A887383-C9B6-45A6-83C1-33579B94781A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A887383-C9B6-45A6-83C1-33579B94781A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A887383-C9B6-45A6-83C1-33579B94781A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0854D9C1-C18D-43AA-A366-46FAC26977EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0854D9C1-C18D-43AA-A366-46FAC26977EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0854D9C1-C18D-43AA-A366-46FAC26977EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0854D9C1-C18D-43AA-A366-46FAC26977EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F2D9159E-76AE-4AE4-844C-11AA2BC27F2C} = {8444DCDF-250C-40EA-974C-0CF1232F3C63}
+		{C3C8598F-A348-4791-8FD9-CAA18E7D6238} = {8444DCDF-250C-40EA-974C-0CF1232F3C63}
+		{1E15E4B8-3DE1-431B-9B2F-0C38CD197365} = {C3C8598F-A348-4791-8FD9-CAA18E7D6238}
+		{164D8113-6723-4351-9C19-D208E6726C34} = {8444DCDF-250C-40EA-974C-0CF1232F3C63}
+		{D7E8E625-CDF6-41A9-BC1A-93ECCA76BB28} = {164D8113-6723-4351-9C19-D208E6726C34}
+		{150AE2EA-6028-42B4-9086-B09357145AA4} = {164D8113-6723-4351-9C19-D208E6726C34}
+		{F793D2E5-CE12-421E-B420-68DB31A1278D} = {164D8113-6723-4351-9C19-D208E6726C34}
+		{C561EDEA-7ADA-4B67-B41F-30A7E4B852F6} = {164D8113-6723-4351-9C19-D208E6726C34}
+		{3A887383-C9B6-45A6-83C1-33579B94781A} = {164D8113-6723-4351-9C19-D208E6726C34}
+		{0854D9C1-C18D-43AA-A366-46FAC26977EE} = {F2D9159E-76AE-4AE4-844C-11AA2BC27F2C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9682FC06-7CEE-487D-B31A-3DE5C369710C}
+	EndGlobalSection
+EndGlobal
