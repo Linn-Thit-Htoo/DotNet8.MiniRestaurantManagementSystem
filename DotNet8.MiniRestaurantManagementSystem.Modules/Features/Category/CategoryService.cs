@@ -109,6 +109,32 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category
             return result;
         }
 
+        public async Task<Result<CategoryDto>> DeleteCategoryAsync(int categoryId, CancellationToken cancellationToken)
+        {
+            Result<CategoryDto> result;
+            try
+            {
+                var category = await GetSpecificCategory(x => x.CategoryId == categoryId, cancellationToken);
+                if (category is null)
+                {
+                    result = Result<CategoryDto>.NotFound("Category Not Found.");
+                    goto result;
+                }
+
+                _context.TblCategories.Remove(category);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                result = Result<CategoryDto>.DeleteSuccess();
+            }
+            catch (Exception ex)
+            {
+                result = Result<CategoryDto>.Failure(ex);
+            }
+
+        result:
+            return result;
+        }
+
         private async Task<bool> IsCategoryDuplicate(Expression<Func<TblCategory, bool>> expression, CancellationToken cancellationToken)
         {
             return await _context.TblCategories.AnyAsync(expression, cancellationToken: cancellationToken);
