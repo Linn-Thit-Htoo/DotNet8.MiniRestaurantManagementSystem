@@ -1,11 +1,7 @@
-﻿using DotNet8.MiniRestaurantManagementSystem.DbService.AppDbContextModels;
-using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Order;
+﻿using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Order;
 using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.OrderDetail;
-using DotNet8.MiniRestaurantManagementSystem.Extensions;
 using DotNet8.MiniRestaurantManagementSystem.Shared;
 using DotNet8.MiniRestaurantManagementSystem.Shared.Queries;
-using DotNet8.MiniRestaurantManagementSystem.Utils;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
