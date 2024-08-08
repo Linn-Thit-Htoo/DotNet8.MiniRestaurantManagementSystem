@@ -6,5 +6,6 @@ global using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Category;
 global using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.MenuItem;
 global using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Order;
 global using DotNet8.MiniRestaurantManagementSystem.Extensions;
+global using DotNet8.MiniRestaurantManagementSystem.Shared;
 global using DotNet8.MiniRestaurantManagementSystem.Utils;
 global using Microsoft.EntityFrameworkCore;
