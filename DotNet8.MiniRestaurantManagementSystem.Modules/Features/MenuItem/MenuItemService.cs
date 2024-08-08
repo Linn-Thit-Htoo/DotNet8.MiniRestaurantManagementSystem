@@ -25,7 +25,7 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem
             Result<IEnumerable<MenuItemDto>> result;
             try
             {
-                var lst = await _context.TblMenuItems.OrderByDescending(x => x.MenuItemId).ToListAsync();
+                var lst = await _context.TblMenuItems.OrderByDescending(x => x.MenuItemId).ToListAsync(cancellationToken: cancellationToken);
                 result = Result<IEnumerable<MenuItemDto>>.Success(lst.Select(x => x.ToDto()));
             }
             catch (Exception ex)
@@ -117,6 +117,32 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem
                 await _context.SaveChangesAsync(cancellationToken);
 
                 result = Result<MenuItemDto>.UpdateSuccess();
+            }
+            catch (Exception ex)
+            {
+                result = Result<MenuItemDto>.Failure(ex);
+            }
+
+        result:
+            return result;
+        }
+
+        public async Task<Result<MenuItemDto>> DeleteMenuItemAsync(int id, CancellationToken cancellationToken)
+        {
+            Result<MenuItemDto> result;
+            try
+            {
+                var menuItem = await _context.TblMenuItems.FindAsync([id, cancellationToken], cancellationToken: cancellationToken);
+                if (menuItem is null)
+                {
+                    result = Result<MenuItemDto>.NotFound("Menu Item Not Found.");
+                    goto result;
+                }
+
+                _context.TblMenuItems.Remove(menuItem);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                result = Result<MenuItemDto>.DeleteSuccess();
             }
             catch (Exception ex)
             {
