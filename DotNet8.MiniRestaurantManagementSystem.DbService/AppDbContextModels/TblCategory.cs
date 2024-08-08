@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DotNet8.MiniRestaurantManagementSystem.DbService.AppDbContextModels;
+﻿namespace DotNet8.MiniRestaurantManagementSystem.DbService.AppDbContextModels;
 
 public partial class TblCategory
 {
