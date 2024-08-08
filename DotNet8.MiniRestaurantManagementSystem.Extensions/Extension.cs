@@ -1,5 +1,6 @@
 ﻿using DotNet8.MiniRestaurantManagementSystem.DbService.AppDbContextModels;
 using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Category;
+using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.MenuItem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,29 @@ namespace DotNet8.MiniRestaurantManagementSystem.Extensions
             {
                 CategoryCode = Ulid.NewUlid().ToString(),
                 CategoryName = categoryDto.CategoryName
+            };
+        }
+
+        public static TblMenuItem ToEntity(this CreateMenuItemDto menuItemDto)
+        {
+            return new TblMenuItem
+            {
+                MenuItemCode = Ulid.NewUlid().ToString(),
+                CategoryCode = menuItemDto.CategoryCode,
+                MenuItemName = menuItemDto.MenuItemName,
+                Price = menuItemDto.Price
+            };
+        }
+
+        public static MenuItemDto ToDto(this TblMenuItem dataModel)
+        {
+            return new MenuItemDto
+            {
+                MenuItemId = dataModel.MenuItemId,
+                MenuItemCode = dataModel.MenuItemCode,
+                CategoryCode = dataModel.CategoryCode,
+                MenuItemName = dataModel.MenuItemName,
+                Price = dataModel.Price
             };
         }
     }
