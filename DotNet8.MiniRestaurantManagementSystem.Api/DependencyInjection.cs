@@ -1,5 +1,4 @@
 ﻿using DotNet8.MiniRestaurantManagementSystem.DbService.AppDbContextModels;
-using DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem;
 using DotNet8.MiniRestaurantManagementSystem.Modules.Features.Order;
 using DotNet8.MiniRestaurantManagementSystem.Shared;
 using Microsoft.EntityFrameworkCore;
