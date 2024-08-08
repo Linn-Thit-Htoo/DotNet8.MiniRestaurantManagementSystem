@@ -9,21 +9,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{F2D9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{C3C8598F-A348-4791-8FD9-CAA18E7D6238}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.Modules", "DotNet8.MiniRestaurantManagementSystem.Modules\DotNet8.MiniRestaurantManagementSystem.Modules.csproj", "{1E15E4B8-3DE1-431B-9B2F-0C38CD197365}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniRestaurantManagementSystem.Modules", "DotNet8.MiniRestaurantManagementSystem.Modules\DotNet8.MiniRestaurantManagementSystem.Modules.csproj", "{1E15E4B8-3DE1-431B-9B2F-0C38CD197365}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{164D8113-6723-4351-9C19-D208E6726C34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.DbService", "DotNet8.MiniRestaurantManagementSystem.DbService\DotNet8.MiniRestaurantManagementSystem.DbService.csproj", "{D7E8E625-CDF6-41A9-BC1A-93ECCA76BB28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniRestaurantManagementSystem.DbService", "DotNet8.MiniRestaurantManagementSystem.DbService\DotNet8.MiniRestaurantManagementSystem.DbService.csproj", "{D7E8E625-CDF6-41A9-BC1A-93ECCA76BB28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.Shared", "DotNet8.MiniRestaurantManagementSystem.Shared\DotNet8.MiniRestaurantManagementSystem.Shared.csproj", "{150AE2EA-6028-42B4-9086-B09357145AA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniRestaurantManagementSystem.Shared", "DotNet8.MiniRestaurantManagementSystem.Shared\DotNet8.MiniRestaurantManagementSystem.Shared.csproj", "{150AE2EA-6028-42B4-9086-B09357145AA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.Extensions", "DotNet8.MiniRestaurantManagementSystem.Extensions\DotNet8.MiniRestaurantManagementSystem.Extensions.csproj", "{F793D2E5-CE12-421E-B420-68DB31A1278D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniRestaurantManagementSystem.Extensions", "DotNet8.MiniRestaurantManagementSystem.Extensions\DotNet8.MiniRestaurantManagementSystem.Extensions.csproj", "{F793D2E5-CE12-421E-B420-68DB31A1278D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.Dtos", "DotNet8.MiniRestaurantManagementSystem.Dtos\DotNet8.MiniRestaurantManagementSystem.Dtos.csproj", "{C561EDEA-7ADA-4B67-B41F-30A7E4B852F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniRestaurantManagementSystem.Dtos", "DotNet8.MiniRestaurantManagementSystem.Dtos\DotNet8.MiniRestaurantManagementSystem.Dtos.csproj", "{C561EDEA-7ADA-4B67-B41F-30A7E4B852F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.Utils", "DotNet8.MiniRestaurantManagementSystem.Utils\DotNet8.MiniRestaurantManagementSystem.Utils.csproj", "{3A887383-C9B6-45A6-83C1-33579B94781A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniRestaurantManagementSystem.Utils", "DotNet8.MiniRestaurantManagementSystem.Utils\DotNet8.MiniRestaurantManagementSystem.Utils.csproj", "{3A887383-C9B6-45A6-83C1-33579B94781A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.MiniRestaurantManagementSystem.Api", "DotNet8.MiniRestaurantManagementSystem.Api\DotNet8.MiniRestaurantManagementSystem.Api.csproj", "{0854D9C1-C18D-43AA-A366-46FAC26977EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.MiniRestaurantManagementSystem.Api", "DotNet8.MiniRestaurantManagementSystem.Api\DotNet8.MiniRestaurantManagementSystem.Api.csproj", "{0854D9C1-C18D-43AA-A366-46FAC26977EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{7CD84C2E-77B5-461D-BADC-821A34D4EFF0}"
+	ProjectSection(SolutionItems) = preProject
+		script.sql = script.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
