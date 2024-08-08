@@ -35,5 +35,28 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem
 
             return result;
         }
+
+        public async Task<Result<MenuItemDto>> GetMenuItemAsync(int id, CancellationToken cancellationToken)
+        {
+            Result<MenuItemDto> result;
+            try
+            {
+                var menuItem = await _context.TblMenuItems.FindAsync([id, cancellationToken], cancellationToken: cancellationToken);
+                if (menuItem is null)
+                {
+                    result = Result<MenuItemDto>.NotFound("Menu Item Not Found.");
+                    goto result;
+                }
+
+                result = Result<MenuItemDto>.Success(menuItem.ToDto());
+            }
+            catch (Exception ex)
+            {
+                result = Result<MenuItemDto>.Failure(ex);
+            }
+
+        result:
+            return result;
+        }
     }
 }
