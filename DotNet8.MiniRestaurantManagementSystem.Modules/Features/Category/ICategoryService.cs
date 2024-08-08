@@ -1,17 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category;
 
-namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category
+public interface ICategoryService
 {
-    public interface ICategoryService
-    {
-        Task<Result<IEnumerable<CategoryDto>>> GetCategoriesAsync(CancellationToken cancellationToken);
-        Task<Result<CategoryDto>> GetCategoryByIdAsync(int categoryId, CancellationToken cancellationToken);
-        Task<Result<CategoryDto>> GetCategoryByCodeAsync(string categoryCode, CancellationToken cancellationToken);
-        Task<Result<CategoryDto>> CreateCategoryAsync(CreateCategoryDto categoryDto, CancellationToken cancellationToken);
-        Task<Result<CategoryDto>> DeleteCategoryAsync(int categoryId, CancellationToken cancellationToken);
-    }
+    Task<Result<IEnumerable<CategoryDto>>> GetCategoriesAsync(CancellationToken cancellationToken);
+    Task<Result<CategoryDto>> GetCategoryByIdAsync(
+        int categoryId,
+        CancellationToken cancellationToken
+    );
+    Task<Result<CategoryDto>> GetCategoryByCodeAsync(
+        string categoryCode,
+        CancellationToken cancellationToken
+    );
+    Task<Result<CategoryDto>> CreateCategoryAsync(
+        CreateCategoryDto categoryDto,
+        CancellationToken cancellationToken
+    );
+    Task<Result<CategoryDto>> DeleteCategoryAsync(
+        int categoryId,
+        CancellationToken cancellationToken
+    );
 }
