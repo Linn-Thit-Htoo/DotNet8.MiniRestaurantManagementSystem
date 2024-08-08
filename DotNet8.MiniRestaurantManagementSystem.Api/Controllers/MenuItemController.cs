@@ -44,10 +44,17 @@ namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers
             return Content(result);
         }
 
-        [HttpPost]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateMenuItem([FromBody] CreateMenuItemDto menuItemDto, int id, CancellationToken cancellationToken)
         {
             var result = await _menuItemService.UpdateMenuItemAsync(id, menuItemDto, cancellationToken);
+            return Content(result);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteMenuItem(int id, CancellationToken cancellationToken)
+        {
+            var result = await _menuItemService.DeleteMenuItemAsync(id, cancellationToken);
             return Content(result);
         }
     }
