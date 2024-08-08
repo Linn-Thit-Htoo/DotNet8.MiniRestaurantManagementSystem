@@ -89,9 +89,36 @@ GO
 ### Running the Application
 
 1. Clone the repository:
-```
+	```
+	
+	git clone https://github.com/yourusername/doctor-appointment-booking.git
+	cd doctor-appointment-booking
+	
+	```
 
-git clone https://github.com/yourusername/doctor-appointment-booking.git
-cd doctor-appointment-booking
+2. Configure SQL Server Db Connection in ``` appsettings.json ```:
+	```
+	
+	{
+	  "Logging": {
+	    "LogLevel": {
+	      "Default": "Information",
+	      "Microsoft.AspNetCore": "Warning"
+	    }
+	  },
+	  "AllowedHosts": "*",
+	  "ConnectionStrings": {
+	    "DbConnection": "Server=.;Database=MiniRestaurantManagementSystem;User ID=sa;Password=sa@123;Trusted_Connection=True;TrustServerCertificate=True;"
+	  }
+	}
+	
+	```
 
-```
+3. Run the application:
+	```
+	
+	dotnet run
+	
+	```
+
+ 4. Open your browser and navigate to ``` https://localhost:7146/swagger ``` to view API documentation.
