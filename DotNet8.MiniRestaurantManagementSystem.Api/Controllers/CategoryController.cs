@@ -1,4 +1,5 @@
-﻿using DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category;
+﻿using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Category;
+using DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Writers;
@@ -34,6 +35,13 @@ namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers
         public async Task<IActionResult> GetCategoryByCode(string categoryCode, CancellationToken cancellationToken)
         {
             var result = await _categoryService.GetCategoryByCodeAsync(categoryCode, cancellationToken);
+            return Content(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryDto categoryDto, CancellationToken cancellationToken)
+        {
+            var result = await _categoryService.CreateCategoryAsync(categoryDto, cancellationToken);
             return Content(result);
         }
     }
