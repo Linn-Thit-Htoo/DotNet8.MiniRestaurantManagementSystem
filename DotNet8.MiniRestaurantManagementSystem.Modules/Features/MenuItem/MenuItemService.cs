@@ -58,5 +58,23 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem
         result:
             return result;
         }
+
+        public async Task<Result<MenuItemDto>> CreateMenuItem(CreateMenuItemDto menuItemDto, CancellationToken cancellationToken)
+        {
+            Result<MenuItemDto> result;
+            try
+            {
+                await _context.TblMenuItems.AddAsync(menuItemDto.ToEntity(), cancellationToken: cancellationToken);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                result = Result<MenuItemDto>.SaveSuccess();
+            }
+            catch (Exception ex)
+            {
+                result = Result<MenuItemDto>.Failure(ex);
+            }
+
+            return result;
+        }
     }
 }

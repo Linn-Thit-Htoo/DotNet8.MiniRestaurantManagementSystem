@@ -12,5 +12,6 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem
     {
         Task<Result<IEnumerable<MenuItemDto>>> GetMenuItemsAsync(CancellationToken cancellationToken);
         Task<Result<MenuItemDto>> GetMenuItemAsync(int id, CancellationToken cancellationToken);
+        Task<Result<MenuItemDto>> CreateMenuItem(CreateMenuItemDto menuItemDto, CancellationToken cancellationToken);
     }
 }
