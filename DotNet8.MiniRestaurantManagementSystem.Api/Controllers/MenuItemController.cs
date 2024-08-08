@@ -1,4 +1,5 @@
-﻿using DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem;
+﻿using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.MenuItem;
+using DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +34,13 @@ namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers
         public async Task<IActionResult> GetMenuItem(int id, CancellationToken cancellationToken)
         {
             var result = await _menuItemService.GetMenuItemAsync(id, cancellationToken);
+            return Content(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateMenuItem([FromBody] CreateMenuItemDto menuItemDto, CancellationToken cancellationToken)
+        {
+            var result = await _menuItemService.CreateMenuItemAsync(menuItemDto, cancellationToken);
             return Content(result);
         }
     }
