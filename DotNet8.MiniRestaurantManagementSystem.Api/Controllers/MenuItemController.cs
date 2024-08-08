@@ -43,5 +43,12 @@ namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers
             var result = await _menuItemService.CreateMenuItemAsync(menuItemDto, cancellationToken);
             return Content(result);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateMenuItem([FromBody] CreateMenuItemDto menuItemDto, int id, CancellationToken cancellationToken)
+        {
+            var result = await _menuItemService.UpdateMenuItemAsync(id, menuItemDto, cancellationToken);
+            return Content(result);
+        }
     }
 }
