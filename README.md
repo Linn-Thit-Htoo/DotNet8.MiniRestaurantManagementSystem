@@ -144,5 +144,5 @@ GO
 		}
 		```
 
-  * Delete Category
+* Delete Category
   	- DELETE ``` /api/Category/4 ```
