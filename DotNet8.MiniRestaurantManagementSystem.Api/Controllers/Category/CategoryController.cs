@@ -2,7 +2,6 @@
 using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Category;
 using DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Writers;
 
 namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers.Category
