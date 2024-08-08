@@ -1,9 +1,10 @@
-﻿using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.MenuItem;
+﻿using DotNet8.MiniRestaurantManagementSystem.Api.Controllers.Base;
+using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.MenuItem;
 using DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers
+namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers.MenuItem
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers
+namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers.Base
 {
     [Route("api/[controller]")]
     [ApiController]
