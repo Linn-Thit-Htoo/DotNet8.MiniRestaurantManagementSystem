@@ -188,3 +188,33 @@ GO
 
 * Delete Menu Item
 	- DELETE ``` /api/MenuItem/3 ```
+
+### Order Endpoints
+
+* Get Order List
+	- GET ``` /api/Order ```
+
+* Get Order List by Invoice
+	- GET ``` /api/Order/invoiceNo?invoiceNo=20240808154457 ```
+
+* Submit Order
+	- POST ``` /api/Order ```
+ 	- Request Body:
+
+		```
+		{
+		    "TotalPrice": 50000,
+		    "OrderDetails": [
+		        {
+		            "MenuItemCode": "01J4RM35B9T20Y8RPHCENR9QH8",
+		            "Quantity": 2,
+		            "TotalPrice": 20000
+		        },
+		        {
+		            "MenuItemCode": "01J4RG7JDSFF0WBRMGDNEWMQSQ",
+		            "Quantity": 2,
+		            "TotalPrice": 30000
+		        }
+		    ]
+		}
+		```
