@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Order;
 
-namespace DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Order
+public class OrderDto
 {
-    public class OrderDto
-    {
-        public int OrderId { get; set; }
+    public int OrderId { get; set; }
 
-        public string InvoiceNo { get; set; } = null!;
+    public string InvoiceNo { get; set; } = null!;
 
-        public decimal TotalPrice { get; set; }
+    public decimal TotalPrice { get; set; }
 
-        public DateTime CreatedDate { get; set; }
+    public DateTime CreatedDate { get; set; }
 
-        public ICollection<OrderDetailDto> OrderDetails { get; set; }
-    }
+    public ICollection<OrderDetailDto> OrderDetails { get; set; }
 }
