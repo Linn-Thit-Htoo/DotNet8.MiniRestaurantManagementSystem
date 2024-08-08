@@ -1,6 +1,7 @@
 ﻿using DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Writers;
 
 namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers
 {
@@ -22,10 +23,17 @@ namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers
             return Content(result);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("id/{id}")]
         public async Task<IActionResult> GetCategoryById(int id, CancellationToken cancellationToken)
         {
             var result = await _categoryService.GetCategoryByIdAsync(id, cancellationToken);
+            return Content(result);
+        }
+
+        [HttpGet("categoryCode/{categoryCode}")]
+        public async Task<IActionResult> GetCategoryByCode(string categoryCode, CancellationToken cancellationToken)
+        {
+            var result = await _categoryService.GetCategoryByCodeAsync(categoryCode, cancellationToken);
             return Content(result);
         }
     }
