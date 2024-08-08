@@ -110,6 +110,13 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem
             Result<MenuItemDto> result;
             try
             {
+                bool categoryValid = await _context.TblCategories.AnyAsync(x => x.CategoryCode == menuItemDto.CategoryCode, cancellationToken: cancellationToken);
+                if (!categoryValid)
+                {
+                    result = Result<MenuItemDto>.NotFound("Category Not Found.");
+                    goto result;
+                }
+
                 var menuItem = await _context.TblMenuItems.FindAsync([id, cancellationToken], cancellationToken: cancellationToken);
                 if (menuItem is null)
                 {
