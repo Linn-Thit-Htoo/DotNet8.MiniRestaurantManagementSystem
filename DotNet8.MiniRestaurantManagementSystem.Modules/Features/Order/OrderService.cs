@@ -35,7 +35,6 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Order
                     .ToListAsync(cancellationToken: cancellationToken);
 
                 List<OrderDataDto> orderDataDtos = new();
-                List<OrderDetailDto> orderDetailDtos = new();
 
                 foreach (var order in orderLst)
                 {
