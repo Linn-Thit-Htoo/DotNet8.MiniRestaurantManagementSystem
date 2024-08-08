@@ -1,9 +1,9 @@
-# Mini Restaurant Management System
+<h1>Mini Restaurant Management System</h1>
 
 This system is built using .NET Core Web Api. This standalone system allows us to manage category related to menu items.
 Furthermore, we can manage menu items and save order and details including invoice.
 
-### Technologies Used
+## Technologies Used
 
 - ASP .NET Core Web API
 - Entity Framework Core
@@ -11,7 +11,7 @@ Furthermore, we can manage menu items and save order and details including invoi
 - N Layer & Vertical Slice architecture
 - Swagger for better API documentation
 
-### Database Setup
+## Database Setup
 
 ```sql
 CREATE DATABASE MiniRestaurantManagementSystem;
@@ -86,7 +86,7 @@ GO
 
 ```
 
-### Running the Application
+## Running the Application
 
 1. Clone the repository:
 	```
@@ -116,9 +116,33 @@ GO
 
 3. Run the application:
 	```
-	
 	dotnet run
-	
 	```
 
  4. Open your browser and navigate to ``` https://localhost:7146/swagger ``` to view API documentation.
+
+
+## API Endpoints
+
+* Get Category List
+	- GET ``` /api/Category ```
+
+* Get Category by ID
+	- GET ``` /api/Category/id/2 ```
+
+* Get Category By Code
+	- GET ``` /api/Category/categoryCode/01J4RG0WVJSCFFCXGEZ9TKAY4B ```
+
+* Add Category
+	- POST ``` /api/Category ```
+ 	- Request Body:
+
+
+		```
+		{
+		    "CategoryName": "test"
+		}
+		```
+
+  * Delete Category
+  	- DELETE ``` /api/Category/4 ```
