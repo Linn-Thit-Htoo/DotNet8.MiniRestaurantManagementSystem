@@ -1,5 +1,6 @@
 // Global using directives
 
+global using DotNet8.MiniRestaurantManagementSystem.Api;
 global using DotNet8.MiniRestaurantManagementSystem.Api.Controllers.Base;
 global using DotNet8.MiniRestaurantManagementSystem.DbService.AppDbContextModels;
 global using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Category;
