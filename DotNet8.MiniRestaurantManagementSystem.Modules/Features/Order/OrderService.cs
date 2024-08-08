@@ -62,6 +62,45 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Order
             return result;
         }
 
+        public async Task<Result<OrderDataDto>> ViewOrderAsync(string invoiceNo, CancellationToken cancellationToken)
+        {
+            Result<OrderDataDto> result;
+            try
+            {
+                var order = await _context
+                    .TblOrders
+                    .FirstOrDefaultAsync(x => x.InvoiceNo == invoiceNo, cancellationToken: cancellationToken);
+
+                if (order is null)
+                {
+                    result = Result<OrderDataDto>.NotFound("Order Not Found.");
+                    goto result;
+                }
+
+                var detailLst = await _context.TblOrderDetails
+                    .Where(x => x.InvoiceNo.Equals(order.InvoiceNo))
+                    .ToListAsync(cancellationToken);
+
+                var orderDataDto = new OrderDataDto()
+                {
+                    OrderDetails = detailLst.Select(x => x.ToDto()).ToList(),
+                    CreatedDate = order.CreatedDate,
+                    InvoiceNo = order.InvoiceNo,
+                    OrderId = order.OrderId,
+                    TotalPrice = order.TotalPrice
+                };
+
+                result = Result<OrderDataDto>.Success(orderDataDto);
+            }
+            catch (Exception ex)
+            {
+                result = Result<OrderDataDto>.Failure(ex);
+            }
+
+        result:
+            return result;
+        }
+
         public async Task<Result<OrderDto>> CreateOrderAsync(CreateOrderDto orderDto, CancellationToken cancellationToken)
         {
             Result<OrderDto> result;
