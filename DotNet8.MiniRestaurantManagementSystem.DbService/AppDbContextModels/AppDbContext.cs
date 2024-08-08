@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-
-namespace DotNet8.MiniRestaurantManagementSystem.DbService.AppDbContextModels;
+﻿namespace DotNet8.MiniRestaurantManagementSystem.DbService.AppDbContextModels;
 
 public partial class AppDbContext : DbContext
 {
