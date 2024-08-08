@@ -22,7 +22,7 @@ namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers
             return Content(result);
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetCategoryById(int id, CancellationToken cancellationToken)
         {
             var result = await _categoryService.GetCategoryByIdAsync(id, cancellationToken);
