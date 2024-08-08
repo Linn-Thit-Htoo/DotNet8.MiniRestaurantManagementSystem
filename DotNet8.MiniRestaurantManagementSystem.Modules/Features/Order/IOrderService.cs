@@ -1,16 +1,14 @@
-﻿using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Order;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Order;
 
-namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Order
+public interface IOrderService
 {
-    public interface IOrderService
-    {
-        Task<Result<OrderListDto>> GetOrdersAsync(CancellationToken cancellationToken);
-        Task<Result<OrderDto>> CreateOrderAsync(CreateOrderDto orderDto, CancellationToken cancellationToken);
-        Task<Result<OrderDataDto>> ViewOrderAsync(string invoiceNo, CancellationToken cancellationToken);
-    }
+    Task<Result<OrderListDto>> GetOrdersAsync(CancellationToken cancellationToken);
+    Task<Result<OrderDto>> CreateOrderAsync(
+        CreateOrderDto orderDto,
+        CancellationToken cancellationToken
+    );
+    Task<Result<OrderDataDto>> ViewOrderAsync(
+        string invoiceNo,
+        CancellationToken cancellationToken
+    );
 }

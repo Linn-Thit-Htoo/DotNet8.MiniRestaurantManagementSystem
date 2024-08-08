@@ -1,5 +1,4 @@
-﻿using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Order;
-using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.OrderDetail;
+﻿using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.OrderDetail;
 using DotNet8.MiniRestaurantManagementSystem.Shared;
 using DotNet8.MiniRestaurantManagementSystem.Shared.Queries;
 using System;
