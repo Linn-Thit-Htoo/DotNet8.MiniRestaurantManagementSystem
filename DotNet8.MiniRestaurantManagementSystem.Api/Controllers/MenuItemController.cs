@@ -28,5 +28,12 @@ namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers
             var result = await _menuItemService.GetMenuItemsByCategoryCodeAsync(categoryCode, cancellationToken);
             return Content(result);
         }
+
+        [HttpGet("id/{id}")]
+        public async Task<IActionResult> GetMenuItem(int id, CancellationToken cancellationToken)
+        {
+            var result = await _menuItemService.GetMenuItemAsync(id, cancellationToken);
+            return Content(result);
+        }
     }
 }
