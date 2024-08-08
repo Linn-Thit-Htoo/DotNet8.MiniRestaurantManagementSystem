@@ -79,7 +79,7 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem
             return result;
         }
 
-        public async Task<Result<MenuItemDto>> CreateMenuItem(CreateMenuItemDto menuItemDto, CancellationToken cancellationToken)
+        public async Task<Result<MenuItemDto>> CreateMenuItemAsync(CreateMenuItemDto menuItemDto, CancellationToken cancellationToken)
         {
             Result<MenuItemDto> result;
             try
@@ -94,6 +94,36 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem
                 result = Result<MenuItemDto>.Failure(ex);
             }
 
+            return result;
+        }
+
+        public async Task<Result<MenuItemDto>> UpdateMenuItemAsync(int id, CreateMenuItemDto menuItemDto, CancellationToken cancellationToken)
+        {
+            Result<MenuItemDto> result;
+            try
+            {
+                var menuItem = await _context.TblMenuItems.FindAsync([id, cancellationToken], cancellationToken: cancellationToken);
+                if (menuItem is null)
+                {
+                    result = Result<MenuItemDto>.NotFound("Menu Item Not Found.");
+                    goto result;
+                }
+
+                menuItem.CategoryCode = menuItemDto.CategoryCode;
+                menuItem.MenuItemName = menuItemDto.MenuItemName;
+                menuItem.Price = menuItemDto.Price;
+
+                _context.TblMenuItems.Update(menuItem);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                result = Result<MenuItemDto>.UpdateSuccess();
+            }
+            catch (Exception ex)
+            {
+                result = Result<MenuItemDto>.Failure(ex);
+            }
+
+        result:
             return result;
         }
     }
