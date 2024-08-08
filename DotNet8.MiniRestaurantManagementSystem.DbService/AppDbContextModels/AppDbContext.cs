@@ -40,7 +40,6 @@ public partial class AppDbContext : DbContext
 
             entity.ToTable("Tbl_MenuItem");
 
-            entity.Property(e => e.MenuItemId).ValueGeneratedNever();
             entity.Property(e => e.CategoryCode).HasMaxLength(50);
             entity.Property(e => e.MenuItemCode).HasMaxLength(50);
             entity.Property(e => e.MenuItemName).HasMaxLength(50);
