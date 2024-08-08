@@ -148,3 +148,43 @@ GO
 
 * Delete Category
   	- DELETE ``` /api/Category/4 ```
+
+### Menu Items Endpoints
+
+* Get Menu Item List
+  	- GET ``` /api/MenuItem ```
+ 
+* Get Menu Item List by Category Code
+  	- GET ``` /api/MenuItem/categoryCode/01J4RG0WVJSCFFCXGEZ9TKAY4B ```
+ 
+* Get Menu Item By Id
+  	- GET ``` /api/MenuItem/id/2 ```
+ 
+* Add Menu Item
+	- POST ``` /api/MenuItem ```
+ 	- Request Body:
+
+
+ 		```
+		{
+		    "CategoryCode": "01J4RG0WVJSCFFCXGEZ9TKAY4B",
+		    "MenuItemName": "Vanilla Drik",
+		    "Price": 10000
+		}
+		```
+ 
+* Update Menu Item
+	- PUT ``` /api/MenuItem/2 ```
+ 	- Request Body:
+
+
+ 		```
+		{
+		    "CategoryCode": "01J4RG0WVJSCFFCXGEZ9TKAY4B",
+		    "MenuItemName": "Vanilla Drik",
+		    "Price": 10000
+		}
+		```
+
+* Delete Menu Item
+	- DELETE ``` /api/MenuItem/3 ```
