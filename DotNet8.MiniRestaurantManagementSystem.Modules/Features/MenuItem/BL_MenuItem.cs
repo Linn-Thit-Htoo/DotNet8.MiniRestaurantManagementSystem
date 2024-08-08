@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem
 {
-    internal class BL_MenuItem
+    public class BL_MenuItem
     {
     }
 }

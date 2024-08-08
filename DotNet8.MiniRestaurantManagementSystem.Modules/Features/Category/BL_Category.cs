@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category
 {
-    internal class BL_Category
+    public class BL_Category
     {
     }
 }

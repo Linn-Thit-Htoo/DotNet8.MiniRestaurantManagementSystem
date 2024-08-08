@@ -20,4 +20,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet8.MiniRestaurantManagementSystem.DbService\DotNet8.MiniRestaurantManagementSystem.DbService.csproj" />
+    <ProjectReference Include="..\DotNet8.MiniRestaurantManagementSystem.Modules\DotNet8.MiniRestaurantManagementSystem.Modules.csproj" />
+  </ItemGroup>
+
 </Project>
