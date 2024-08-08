@@ -36,6 +36,26 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem
             return result;
         }
 
+        public async Task<Result<IEnumerable<MenuItemDto>>> GetMenuItemsByCategoryCodeAsync(string categoryCode, CancellationToken cancellationToken)
+        {
+            Result<IEnumerable<MenuItemDto>> result;
+            try
+            {
+                var lst = await _context.TblMenuItems
+                    .Where(x => x.CategoryCode == categoryCode)
+                    .OrderByDescending(x => x.MenuItemId)
+                    .ToListAsync(cancellationToken: cancellationToken);
+
+                result = Result<IEnumerable<MenuItemDto>>.Success(lst.Select(x => x.ToDto()));
+            }
+            catch (Exception ex)
+            {
+                result = Result<IEnumerable<MenuItemDto>>.Failure(ex);
+            }
+
+            return result;
+        }
+
         public async Task<Result<MenuItemDto>> GetMenuItemAsync(int id, CancellationToken cancellationToken)
         {
             Result<MenuItemDto> result;
