@@ -84,6 +84,13 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem
             Result<MenuItemDto> result;
             try
             {
+                bool categoryValid = await _context.TblCategories.AnyAsync(x => x.CategoryCode == menuItemDto.CategoryCode, cancellationToken: cancellationToken);
+                if (!categoryValid)
+                {
+                    result = Result<MenuItemDto>.NotFound("Category Not Found.");
+                    goto result;
+                }
+
                 await _context.TblMenuItems.AddAsync(menuItemDto.ToEntity(), cancellationToken: cancellationToken);
                 await _context.SaveChangesAsync(cancellationToken);
 
@@ -94,6 +101,7 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem
                 result = Result<MenuItemDto>.Failure(ex);
             }
 
+        result:
             return result;
         }
 
