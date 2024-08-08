@@ -44,5 +44,12 @@ namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers
             var result = await _categoryService.CreateCategoryAsync(categoryDto, cancellationToken);
             return Content(result);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCategory(int id, CancellationToken cancellationToken)
+        {
+            var result = await _categoryService.DeleteCategoryAsync(id, cancellationToken);
+            return Content(result);
+        }
     }
 }
