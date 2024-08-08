@@ -1,9 +1,11 @@
 ﻿using DotNet8.MiniRestaurantManagementSystem.DbService.AppDbContextModels;
 using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.Order;
+using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.OrderDetail;
 using DotNet8.MiniRestaurantManagementSystem.Extensions;
 using DotNet8.MiniRestaurantManagementSystem.Shared;
 using DotNet8.MiniRestaurantManagementSystem.Shared.Queries;
 using DotNet8.MiniRestaurantManagementSystem.Utils;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,19 +25,38 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Order
             _context = context;
         }
 
-        public async Task<Result<IEnumerable<OrderDto>>> GetOrdersAsync()
+        public async Task<Result<OrderListDto>> GetOrdersAsync(CancellationToken cancellationToken)
         {
-            Result<IEnumerable<OrderDto>> result;
+            Result<OrderListDto> result;
             try
             {
-                string query = OrderQuery.OrderListQuery;
-                var lst = await _dapperService.QueryAsync<OrderDto>(query);
+                var orderLst = await _context.TblOrders
+                    .OrderByDescending(x => x.OrderId)
+                    .ToListAsync(cancellationToken: cancellationToken);
 
-                result = Result<IEnumerable<OrderDto>>.Success(lst);
+                List<OrderDataDto> orderDataDtos = new();
+                List<OrderDetailDto> orderDetailDtos = new();
+
+                foreach (var order in orderLst)
+                {
+                    var detailLst = await _context.TblOrderDetails.Where(x => x.InvoiceNo == order.InvoiceNo)
+                        .ToListAsync(cancellationToken: cancellationToken);
+
+                    orderDataDtos.Add(new OrderDataDto
+                    {
+                        OrderId = order.OrderId,
+                        CreatedDate = order.CreatedDate,
+                        InvoiceNo = order.InvoiceNo,
+                        TotalPrice = order.TotalPrice,
+                        OrderDetails = detailLst.Select(x => x.ToDto()).ToList()
+                    });
+                }
+
+                result = Result<OrderListDto>.Success(new OrderListDto() { DataLst = orderDataDtos });
             }
             catch (Exception ex)
             {
-                result = Result<IEnumerable<OrderDto>>.Failure(ex);
+                result = Result<OrderListDto>.Failure(ex);
             }
 
             return result;

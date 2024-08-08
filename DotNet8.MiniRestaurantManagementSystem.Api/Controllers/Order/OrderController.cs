@@ -18,9 +18,9 @@ namespace DotNet8.MiniRestaurantManagementSystem.Api.Controllers.Order
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetOrders()
+        public async Task<IActionResult> GetOrders(CancellationToken cancellationToken)
         {
-            var result = await _orderService.GetOrdersAsync();
+            var result = await _orderService.GetOrdersAsync(cancellationToken);
             return Content(result);
         }
 

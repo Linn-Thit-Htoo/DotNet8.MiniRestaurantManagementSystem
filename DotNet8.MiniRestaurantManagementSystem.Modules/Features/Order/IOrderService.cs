@@ -10,7 +10,7 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Order
 {
     public interface IOrderService
     {
-        Task<Result<IEnumerable<OrderDto>>> GetOrdersAsync();
+        Task<Result<OrderListDto>> GetOrdersAsync(CancellationToken cancellationToken);
         Task<Result<OrderDto>> CreateOrderAsync(CreateOrderDto orderDto, CancellationToken cancellationToken);
     }
 }

@@ -70,9 +70,21 @@ namespace DotNet8.MiniRestaurantManagementSystem.Extensions
             return new TblOrderDetail
             {
                 InvoiceNo = invoice,
-                MenuItemCode= orderDetailDto.MenuItemCode,
+                MenuItemCode = orderDetailDto.MenuItemCode,
                 Quantity = orderDetailDto.Quantity,
-                TotalPrice= orderDetailDto.TotalPrice
+                TotalPrice = orderDetailDto.TotalPrice
+            };
+        }
+
+        public static OrderDetailDto ToDto(this TblOrderDetail dataModel)
+        {
+            return new OrderDetailDto
+            {
+                InvoiceNo = dataModel.InvoiceNo,
+                MenuItemCode = dataModel.MenuItemCode,
+                OrderDetailId = dataModel.OrderDetailId,
+                Quantity = dataModel.Quantity,
+                TotalPrice = dataModel.TotalPrice
             };
         }
     }
