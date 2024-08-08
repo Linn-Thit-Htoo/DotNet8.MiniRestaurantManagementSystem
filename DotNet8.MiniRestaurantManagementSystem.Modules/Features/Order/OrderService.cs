@@ -57,6 +57,7 @@ namespace DotNet8.MiniRestaurantManagementSystem.Modules.Features.Order
                 }
 
                 await _context.SaveChangesAsync(cancellationToken);
+                await transaction.CommitAsync(cancellationToken);
                 result = Result<OrderDto>.SaveSuccess();
             }
             catch (Exception ex)
