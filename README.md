@@ -124,6 +124,8 @@ GO
 
 ## API Endpoints
 
+### Category Endpoints
+
 * Get Category List
 	- GET ``` /api/Category ```
 
