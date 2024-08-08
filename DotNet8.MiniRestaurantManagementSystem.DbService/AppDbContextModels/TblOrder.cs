@@ -10,4 +10,6 @@ public partial class TblOrder
     public string InvoiceNo { get; set; } = null!;
 
     public decimal TotalPrice { get; set; }
+
+    public DateTime CreatedDate { get; set; }
 }

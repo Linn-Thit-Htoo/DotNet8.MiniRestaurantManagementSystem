@@ -1,6 +1,7 @@
 ﻿using DotNet8.MiniRestaurantManagementSystem.DbService.AppDbContextModels;
 using DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category;
 using DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem;
+using DotNet8.MiniRestaurantManagementSystem.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,7 +13,8 @@ namespace DotNet8.MiniRestaurantManagementSystem.Api
         {
             return services.AddDbContextService(builder)
                 .AddDataAccessService()
-                .AddBusinessLogicService();
+                .AddBusinessLogicService()
+                .AddCustomService();
         }
 
         private static IServiceCollection AddDbContextService(this IServiceCollection services, WebApplicationBuilder builder)
@@ -36,6 +38,11 @@ namespace DotNet8.MiniRestaurantManagementSystem.Api
         {
             return services.AddScoped<BL_Category>()
                 .AddScoped<BL_MenuItem>();
+        }
+
+        private static IServiceCollection AddCustomService(this IServiceCollection services)
+        {
+            return services.AddScoped<DapperService>();
         }
     }
 }

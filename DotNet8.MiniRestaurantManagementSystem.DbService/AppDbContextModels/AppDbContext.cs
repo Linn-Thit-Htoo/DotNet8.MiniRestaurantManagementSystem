@@ -22,6 +22,7 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<TblOrder> TblOrders { get; set; }
 
     public virtual DbSet<TblOrderDetail> TblOrderDetails { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<TblCategory>(entity =>
@@ -52,6 +53,7 @@ public partial class AppDbContext : DbContext
 
             entity.ToTable("Tbl_Order");
 
+            entity.Property(e => e.CreatedDate).HasColumnType("datetime");
             entity.Property(e => e.InvoiceNo).HasMaxLength(50);
             entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 2)");
         });
