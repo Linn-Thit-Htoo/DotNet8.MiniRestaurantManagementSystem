@@ -1,6 +1,7 @@
 ﻿using DotNet8.MiniRestaurantManagementSystem.DbService.AppDbContextModels;
 using DotNet8.MiniRestaurantManagementSystem.Modules.Features.Category;
 using DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem;
+using DotNet8.MiniRestaurantManagementSystem.Modules.Features.Order;
 using DotNet8.MiniRestaurantManagementSystem.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,7 +32,8 @@ namespace DotNet8.MiniRestaurantManagementSystem.Api
         private static IServiceCollection AddDataAccessService(this IServiceCollection services)
         {
             return services.AddScoped<ICategoryService, CategoryService>()
-                .AddScoped<IMenuItemService, MenuItemService>();
+                .AddScoped<IMenuItemService, MenuItemService>()
+                .AddScoped<IOrderService, OrderService>();
         }
 
         private static IServiceCollection AddBusinessLogicService(this IServiceCollection services)
