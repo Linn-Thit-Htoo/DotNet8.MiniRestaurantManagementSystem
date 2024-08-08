@@ -1,5 +1,4 @@
-﻿using DotNet8.MiniRestaurantManagementSystem.Api.Controllers.Base;
-using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.MenuItem;
+﻿using DotNet8.MiniRestaurantManagementSystem.Dtos.Features.MenuItem;
 using DotNet8.MiniRestaurantManagementSystem.Modules.Features.MenuItem;
 using Microsoft.AspNetCore.Http;
 
